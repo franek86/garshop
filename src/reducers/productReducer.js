@@ -10,7 +10,12 @@ export const productReducer = (
 ) => {
   switch (action.type) {
     case ALL_PRODUCT_REQUEST:
-      return { loading: true, products: [] };
+      return {
+        loading: true,
+        products: [],
+        new_collection: [],
+        archive_products: [],
+      };
     case ALL_PRODUCT_SUCCESS:
       return {
         loading: false,

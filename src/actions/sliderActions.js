@@ -1,4 +1,5 @@
-import axios from "axios";
+// import axios from "axios";
+import axiosInstance from "../axiosHelper";
 
 import {
   SLIDER_SUCCESS,
@@ -9,7 +10,7 @@ import {
 export const getSliders = () => async (dispatch) => {
   try {
     dispatch({ type: SLIDER_REQUEST });
-    const res = await axios.get("http://localhost:1337/main-sliders/");
+    const res = await axiosInstance.get("/main-sliders");
 
     dispatch({ type: SLIDER_SUCCESS, payload: res.data });
   } catch (error) {

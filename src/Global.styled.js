@@ -37,8 +37,51 @@ const GlobalStyles = createGlobalStyle`
         height: 20px;
     }
 
+    //Slider global style navigation and paginaiton
+    .swiper-button-prev,
+    .swiper-button-next{
+      position: static;
+      top: unset;
+      bottom: 0;
+      margin-top: 0;
+      padding: 35px;
+      
+      &:after{
+        font-size:2rem;
+      }
+    }
 
+    .swiper-button-next{
+      right:0px;
+      background-color: ${({ theme }) => theme.colors.blackColor};
+      &:after{
+        color: ${({ theme }) => theme.colors.whiteColor};
+      }
+    }
+    .swiper-button-prev{
+      right:auto; 
+      left:calc(100% - 130px);
+       &:after{
+        color: ${({ theme }) => theme.colors.blackColor};
+      }
+    }
 
+    .swiper-pagination{
+      left: calc(50% + 70px);
+    }
+
+    .swiper-pagination-bullet{
+      height: 12px;
+      width:12px;
+      opacity: 1;
+      margin-right: 8px;
+      border:1px solid ${({ theme }) => theme.colors.blackColor};
+    }
+
+    .swiper-pagination-bullet-active{
+      background: transparent;
+      border:1px solid ${({ theme }) => theme.colors.blackColor};
+    }
 
 `;
 
@@ -62,7 +105,10 @@ export const Section = styled.section`
 `;
 
 export const MainHeading = styled.h1`
-  font-size: clamp(1.875rem, 4vw, 3rem);
+  font-size: 24px;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.blackColor};
+  font-weight: 400;
 `;
 
 export default GlobalStyles;

@@ -1,4 +1,6 @@
-import axios from "axios";
+// import axios from "axios";
+
+import axiosInstance from "../axiosHelper";
 
 import {
   ALL_PRODUCT_REQUEST,
@@ -10,12 +12,12 @@ export const getAllProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
 
-    const res = await axios.get("http://localhost:1337/products");
+    const res = await axiosInstance.get("/products");
     const data = res.data;
 
-    const homeCat = (name) => {
+    const productCat = (name) => {
       let filterProduct = data.filter((cat) =>
-        cat.categories.some((catName) => catName.category === `${name}`)
+        cat.categories.some((catName) => catName.name === `${name}`)
       );
 
       return filterProduct;
@@ -24,8 +26,8 @@ export const getAllProducts = () => async (dispatch) => {
     dispatch({
       type: ALL_PRODUCT_SUCCESS,
       payload: data,
-      new_collections: homeCat("New Collection"),
-      archive: homeCat("Archive"),
+      new_collections: productCat("New Collection"),
+      archive: productCat("Archive"),
     });
   } catch (error) {
     dispatch({ type: ALL_PRODUCT_FAIL, payload: error });
