@@ -9,6 +9,7 @@ import NewCollections from "./pages/NewCollections";
 import Archive from "./pages/Archive";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import { Footer } from "./components/Footer/Footer";
 
 const theme = {
   colors: {
@@ -61,6 +62,7 @@ function App() {
             <About />
           </Route>
         </Switch>
+        <Footer />
       </Router>
     </ThemeProvider>
   );

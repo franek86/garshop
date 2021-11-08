@@ -37,6 +37,15 @@ const GlobalStyles = createGlobalStyle`
         height: 20px;
     }
 
+    .icon--m{
+        width: 30px;
+        height: 30px;
+    }
+
+    .approx__price{
+      font-size: 12px;
+    }
+
     //Slider global style navigation and paginaiton
     .swiper-button-prev,
     .swiper-button-next{

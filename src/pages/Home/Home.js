@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SwiperSlide } from "swiper/react";
 import Subscribe from "../../components/Subscribe/Subscribe";
-// import Product from "../../components/Product/Product";
+import Card from "../../components/Card/Card";
 
 import { Container, MainHeading, Section } from "../../Global.styled";
 import { Newsletter, SliderImage, SliderCaption } from "./Home.style";
@@ -12,10 +12,9 @@ import { getSliders } from "../../actions/sliderActions";
 import Slider from "../../components/Slider/Slider";
 
 const Home = () => {
-  const [slidePerView, setSlidePerView] = useState(1);
-
   const dispatch = useDispatch();
   const { new_collection } = useSelector((state) => state.productList);
+  const { archive_products } = useSelector((state) => state.productList);
   const { slider } = useSelector((state) => state.silders);
 
   useEffect(() => {
@@ -43,7 +42,7 @@ const Home = () => {
       </Section>
 
       <Section>
-        <Slider slidePerView={slidePerView}>
+        <Slider slidePerView={1}>
           {slider.map((s) => (
             <SwiperSlide key={s._id} className="slide">
               <SliderImage
@@ -62,9 +61,26 @@ const Home = () => {
 
       <Section>
         <MainHeading>New arrivals</MainHeading>
-        {new_collection.map((n) => (
-          <p key={n._id}>{n.title}</p>
-        ))}
+
+        <Slider slidePerView={3}>
+          {new_collection.map((product) => (
+            <SwiperSlide key={product._id} className="slide">
+              <Card product={product} />
+            </SwiperSlide>
+          ))}
+        </Slider>
+      </Section>
+
+      <Section>
+        <MainHeading>Gar archive</MainHeading>
+
+        <Slider slidePerView={3}>
+          {archive_products.map((product) => (
+            <SwiperSlide key={product._id} className="slide">
+              <Card product={product} />
+            </SwiperSlide>
+          ))}
+        </Slider>
       </Section>
     </Container>
   );

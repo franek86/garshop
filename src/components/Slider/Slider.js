@@ -1,10 +1,5 @@
 import React, { useRef } from "react";
-import SwiperCore, {
-  Navigation,
-  Pagination,
-  Autoplay,
-  EffectFade,
-} from "swiper";
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import { Swiper } from "swiper/react";
 
 // swiper bundle styles
@@ -13,7 +8,7 @@ import "swiper/components/effect-fade/effect-fade.scss";
 import "swiper/components/navigation/navigation.scss";
 import "swiper/components/pagination/pagination.scss";
 import { SwiperNavigationWrapper } from "./Slider.style";
-SwiperCore.use([EffectFade, Navigation, Pagination, Autoplay]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const Slider = ({ slidePerView, children }) => {
   const prevRef = useRef(null);
@@ -30,14 +25,12 @@ const Slider = ({ slidePerView, children }) => {
         }}
         pagination={{ el: paginationRef.current, clickable: true }}
         autoplay={{ delay: 8000 }}
-        seed={1000}
-        effect={"fade"}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        speed={1000}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;
-          // swiper.params.navigation.el = paginationRef.current;
           swiper.navigation.update();
         }}
       >
