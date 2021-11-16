@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const Newsletter = styled.div`
   display: grid;
-  grid-template-columns: 50% 1fr;
+
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+    grid-template-columns: 50% 1fr;
+  }
 `;
 
 export const SliderImage = styled.img`

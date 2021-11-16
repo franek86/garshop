@@ -10,7 +10,7 @@ import "swiper/components/pagination/pagination.scss";
 import { SwiperNavigationWrapper } from "./Slider.style";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
-const Slider = ({ slidePerView, children }) => {
+const Slider = ({ slidePerView, breakpointsRule, children }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const paginationRef = React.useRef(null);
@@ -25,9 +25,8 @@ const Slider = ({ slidePerView, children }) => {
         }}
         pagination={{ el: paginationRef.current, clickable: true }}
         autoplay={{ delay: 8000 }}
+        breakpoints={breakpointsRule}
         speed={1000}
-        // onSlideChange={() => console.log("slide change")}
-        // onSwiper={(swiper) => console.log(swiper)}
         onInit={(swiper) => {
           swiper.params.navigation.prevEl = prevRef.current;
           swiper.params.navigation.nextEl = nextRef.current;

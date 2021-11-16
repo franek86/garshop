@@ -9,7 +9,9 @@ import NewCollections from "./pages/NewCollections";
 import Archive from "./pages/Archive";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
+import Product from "./pages/Product/Product";
 import { Footer } from "./components/Footer/Footer";
+import { NotFoundPage } from "./pages/NotFound/NotFoundPage";
 
 const theme = {
   colors: {
@@ -20,6 +22,7 @@ const theme = {
     whiteColor: "#ffffff",
     greyColor: "#b5b5b5",
     greenColor: "#9aa084",
+    lightGreenColor: "#cdcfc5",
   },
 
   sizes: {
@@ -61,6 +64,14 @@ function App() {
           <Route path="/about-us">
             <About />
           </Route>
+
+          <Route path="/products/:id">
+            <Product />
+          </Route>
+
+          <Router path="*">
+            <NotFoundPage />
+          </Router>
         </Switch>
         <Footer />
       </Router>

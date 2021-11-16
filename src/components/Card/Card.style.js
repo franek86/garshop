@@ -5,12 +5,22 @@ export const CardWrap = styled.article`
   flex-direction: column;
   width: 100%;
   border: 1px solid rgba(36, 36, 36, 0.15);
+  a {
+    color: ${({ theme }) => theme.colors.blackColor};
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.02);
+    }
+  }
 `;
 
 export const CardImage = styled.img`
   height: 360px;
   width: 100%;
   object-fit: contain;
+  transition: all 0.25s ease-in-out;
 `;
 
 export const CardFooter = styled.footer`

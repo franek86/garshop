@@ -42,6 +42,11 @@ const GlobalStyles = createGlobalStyle`
         height: 30px;
     }
 
+     .icon--lg{
+        width: 40px;
+        height: 40px;
+    }
+
     .approx__price{
       font-size: 12px;
     }
@@ -53,10 +58,16 @@ const GlobalStyles = createGlobalStyle`
       top: unset;
       bottom: 0;
       margin-top: 0;
-      padding: 35px;
+      padding: 16px;
+      @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+         padding: 35px;
+      }
       
       &:after{
-        font-size:2rem;
+        font-size:1rem;
+         @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+          font-size:2rem;
+        }
       }
     }
 
@@ -76,15 +87,23 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .swiper-pagination{
-      left: calc(50% + 70px);
+      left: calc(50% + 16px);
+      @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+         left: calc(50% + 70px);
+      }
     }
 
     .swiper-pagination-bullet{
-      height: 12px;
-      width:12px;
+      height: 8px;
+      width:8px;
       opacity: 1;
       margin-right: 8px;
       border:1px solid ${({ theme }) => theme.colors.blackColor};
+
+      @media only screen and (min-width: ${({ theme }) => theme.sizes.lg}) {
+        height: 12px;
+        width:12px;
+      }
     }
 
     .swiper-pagination-bullet-active{

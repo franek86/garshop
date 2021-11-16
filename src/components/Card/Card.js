@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { CardWrap, CardImage, CardFooter } from "./Card.style";
 
 import { formatPrice, approxEur } from "../../helper";
@@ -7,17 +8,23 @@ const Card = ({ product }) => {
   const { title, price, images, brand } = product;
   return (
     <CardWrap>
-      {images.map((image) => (
-        <CardImage
-          key={image.id}
-          src={`${image.formats.medium.url}`}
-          alt={image.alternativeText}
-        />
-      ))}
+      <Link to={`/products/${product._id}`}>
+        {images.map((image) => (
+          <CardImage
+            key={image.id}
+            src={`${image.formats.medium.url}`}
+            alt={image.alternativeText}
+          />
+        ))}
+      </Link>
       <CardFooter>
         <div className="card__footer">
           <h2>{title}</h2>
-          {brand && <h2>{brand.Title}</h2>}
+          {brand && (
+            <h2>
+              <Link>{brand.Title}</Link>
+            </h2>
+          )}
           {formatPrice(price)}
           <div className="approx__price">
             {`(approx.EUR ${approxEur(price)})`}

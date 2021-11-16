@@ -9,8 +9,14 @@ export const FooterLine = styled.div`
 
 export const FooterWrap = styled.footer`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 60px;
+
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.sm}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
   h5,
   ul {

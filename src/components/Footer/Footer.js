@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Subscribe from "../Subscribe/Subscribe";
 
 import { Container } from "../../Global.styled";
@@ -39,22 +40,22 @@ export const Footer = () => {
 
             <ul>
               <li>
-                <a href="#">New Collection</a>
+                <Link href="#">New Collection</Link>
               </li>
               <li>
-                <a href="#">Archive</a>
-              </li>
-
-              <li>
-                <a href="#">Brands</a>
+                <Link href="#">Archive</Link>
               </li>
 
               <li>
-                <a href="#">About us</a>
+                <Link href="#">Brands</Link>
               </li>
 
               <li>
-                <a href="#">Contact</a>
+                <Link href="#">About us</Link>
+              </li>
+
+              <li>
+                <Link href="#">Contact</Link>
               </li>
             </ul>
           </div>
@@ -63,16 +64,16 @@ export const Footer = () => {
 
             <ul>
               <li>
-                <a href="#">Pamynet</a>
+                <Link href="#">Payment</Link>
               </li>
               <li>
-                <a href="#">Shipping</a>
+                <Link href="#">Shipping</Link>
               </li>
               <li>
-                <a href="#">Terms</a>
+                <Link href="#">Terms</Link>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <Link href="#">Privacy Policy</Link>
               </li>
             </ul>
 

@@ -1,5 +1,7 @@
 import React, { useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
+import MiniCart from "../MiniCart/MiniCart";
+import WishListIcon from "../WishListIcon/WishListIcon";
 
 import { DesktopNav, NavList, NavItem, HoverLink } from "./Nav.style";
 
@@ -43,6 +45,9 @@ const Nav = () => {
 
         <HoverLink left={left} width={elWidth} />
       </NavList>
+
+      <WishListIcon />
+      <MiniCart />
     </DesktopNav>
   );
 };

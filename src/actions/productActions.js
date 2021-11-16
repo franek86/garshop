@@ -6,6 +6,9 @@ import {
   ALL_PRODUCT_REQUEST,
   ALL_PRODUCT_SUCCESS,
   ALL_PRODUCT_FAIL,
+  SINGLE_PRODUCT_REQUEST,
+  SINGLE_PRODUCT_SUCCESS,
+  SINGLE_PRODUCT_FAIL,
 } from "../constants/productConstants";
 
 export const getAllProducts = () => async (dispatch) => {
@@ -31,5 +34,15 @@ export const getAllProducts = () => async (dispatch) => {
     });
   } catch (error) {
     dispatch({ type: ALL_PRODUCT_FAIL, payload: error });
+  }
+};
+
+export const getSingleProduct = (id) => async (dispatch) => {
+  dispatch({ type: SINGLE_PRODUCT_REQUEST });
+  try {
+    const { data } = await axiosInstance.get(`/products/${id}`);
+    dispatch({ type: SINGLE_PRODUCT_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: SINGLE_PRODUCT_FAIL, payload: error });
   }
 };

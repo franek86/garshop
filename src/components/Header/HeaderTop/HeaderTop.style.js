@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  margin-top: 16px;
+  display: none;
+
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 16px;
+  }
 `;
 
 export const HeaderTopList = styled.ul`
