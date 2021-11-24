@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Home from "./pages/Home/Home";
 import Brands from "./pages/Brands";
-import NewCollections from "./pages/NewCollections";
+import NewCollections from "./pages/NewCollections/NewCollections";
 import Archive from "./pages/Archive";
 import Contact from "./pages/Contact";
 import About from "./pages/About";

@@ -9,13 +9,11 @@ const Card = ({ product }) => {
   return (
     <CardWrap>
       <Link to={`/products/${product._id}`}>
-        {images.map((image) => (
-          <CardImage
-            key={image.id}
-            src={`${image.formats.medium.url}`}
-            alt={image.alternativeText}
-          />
-        ))}
+        <CardImage
+          key={images[0].id}
+          src={`${images[0].formats.medium.url}`}
+          alt={images[0].alternativeText}
+        />
       </Link>
       <CardFooter>
         <div className="card__footer">

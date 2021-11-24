@@ -15,7 +15,7 @@ export const getAllProducts = () => async (dispatch) => {
   try {
     dispatch({ type: ALL_PRODUCT_REQUEST });
 
-    const res = await axiosInstance.get("/products");
+    const res = await axiosInstance.get(`/products`);
     const data = res.data;
 
     const productCat = (name) => {

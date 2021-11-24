@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getSingleProduct } from "../../actions/productActions";
 import { useParams } from "react-router-dom";
+import { ProductImages } from "../../components/ProductImages/ProductImages";
 
 import { formatPrice, approxEur } from "../../helper";
 
@@ -22,6 +23,7 @@ const Product = () => {
   const { product } = useSelector((state) => state.singleProduct);
 
   const {
+    images,
     title: productTitle,
     price,
     stock,
@@ -41,7 +43,7 @@ const Product = () => {
   return (
     <Container>
       <ProductWrap>
-        <div>Image</div>
+        <ProductImages images={images} />
 
         <div>
           <ProductTitle>{productTitle}</ProductTitle>

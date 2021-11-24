@@ -4,10 +4,12 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   productReducer,
   singleProductReducer,
-} from "./reducers/productReducer";
+} from "./reducers/productReducers";
 import { sliderReducer } from "./reducers/sliderReducers";
+import { newCollectionReducer } from "./reducers/categoryReducers";
 
 const reducer = combineReducers({
+  categories: newCollectionReducer,
   productList: productReducer,
   silders: sliderReducer,
   singleProduct: singleProductReducer,

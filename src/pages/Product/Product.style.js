@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
 export const ProductWrap = styled.article`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  margin-top: 60px;
+
+  @media only screen and (min-width: ${({ theme }) => theme.sizes.md}) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(350px, 1fr));
+    gap: 40px;
+  }
 `;
 
 export const ProductTitle = styled.h1`

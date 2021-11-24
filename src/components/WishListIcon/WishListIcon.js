@@ -19,7 +19,7 @@ const WishListIcon = () => {
         />
       </svg>
 
-      <WishListCount>10</WishListCount>
+      <WishListCount>0</WishListCount>
     </WishListWrap>
   );
 };
